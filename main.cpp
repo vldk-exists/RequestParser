@@ -62,7 +62,8 @@ int main() {
 
     if (recv_all(client_socket)) {
         cout << "Well done!" << endl;
-        cout << receivedData << endl;
+		string headers = receivedData.substr(0, receivedData.find("\r\n\r\n"));
+		cout << headers << endl;
     } else cout << "Failed!" << endl;
 
     close(server_socket);
